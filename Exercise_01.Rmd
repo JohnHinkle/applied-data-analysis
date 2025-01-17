@@ -1,0 +1,47 @@
+---
+title: "Exercise 01: Send Emails Programmatically"
+author: "John Hinkle"
+output: html_document
+date: "2025-01-16"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Exercise 01: Send Emails Programmatically
+
+#### Gmail App Password
+
+```{r, echo=FALSE}
+pwd_gmail <- "crqn lcxy wrlt zxiw"
+```
+
+#### Load the necessary package
+
+```{r, echo=FALSE}
+library(emayili)
+library(tidyverse)
+```
+
+#### Create email message
+
+```{r, echo=FALSE}
+message_gmail <- envelope() %>%
+    from("john.hinkle@utexas.edu") %>%
+    to("anthony.difiore@utexas.edu") %>%
+    subject("Sent using {emayili}: Please add me to Datacamp roster") %>%
+    text("Hello, I would like to be added to the Datacamp roster for Applied Data Analysis. This email was sent using the {emayili} package in R. Best, John Hinkle")
+```
+
+#### Create Gmail server object
+
+```{r, echo=FALSE}
+smtp_gmail <- gmail(username = "john.hinkle@utexas.edu", password = pwd_gmail)
+```
+
+#### Sending the email using Google's Gmail server
+
+```{r, echo=FALSE}
+smtp_gmail(message_gmail, verbose = TRUE)
+```
