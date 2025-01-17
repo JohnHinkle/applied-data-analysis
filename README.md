@@ -1,2 +1,2 @@
 # applied-data-analysis
-ADA
+Repository for BIO 384K: Applied Data Analysis (Spring 2025)
